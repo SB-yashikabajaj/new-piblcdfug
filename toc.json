@@ -1,0 +1,33 @@
+{
+  "collapseTableOfContents": false,
+  "items": [
+    {
+      "type": "item",
+      "title": "docertasdefrgthhgijotrlg",
+      "uri": "/docs/docerthgijotrlg.md"
+    },
+    {
+      "type": "divider",
+      "title": "APasdfrgthIS"
+    },
+    {
+      "type": "item",
+      "title": "ertasdfgyuio",
+      "uri": "/reference/ertyuio.yaml"
+    },
+    {
+      "type": "item",
+      "title": "chsawdefrgtyats",
+      "uri": "/reference/chats.yaml"
+    },
+    {
+      "type": "divider",
+      "title": "Schemas"
+    },
+    {
+      "type": "item",
+      "title": "model123e4r5",
+      "uri": "/models/model123e4r5.yaml"
+    }
+  ]
+}
