@@ -1,0 +1,368 @@
+openapi: 3.1.0
+x-stoplight:
+  id: y0ulg5idt0ozd
+info:
+  title: chats
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/users/{userId}':
+    parameters:
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: userId
+        in: path
+        required: true
+      - schema:
+          type: integer
+        name: userId
+        in: path
+        required: true
+        description: Id of an existing user.
+    get:
+      summary: Get User Info by User ID
+      tags: []
+      responses:
+        '200':
+          description: User Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Get User Alice Smith:
+                  value:
+                    id: 142
+                    firstName: Alice
+                    lastName: Smith
+                    email: alice.smith@gmail.com
+                    dateOfBirth: '1997-10-31'
+                    emailVerified: true
+                    signUpDate: '2019-08-24'
+        '404':
+          description: User Not Found
+      operationId: get-users-userId
+      description: Retrieve the information of the user with the matching user ID.
+      x-stoplight:
+        id: l206azob2m93m
+    patch:
+      summary: Update User Information
+      operationId: patch-users-userId
+      responses:
+        '200':
+          description: User Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                Updated User Rebecca Baker:
+                  value:
+                    id: 13
+                    firstName: Rebecca
+                    lastName: Baker
+                    email: rebecca@gmail.com
+                    dateOfBirth: '1985-10-02'
+                    emailVerified: false
+                    createDate: '2019-08-24'
+        '404':
+          description: User Not Found
+        '409':
+          description: Email Already Taken
+      description: Update the information of an existing user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                dateOfBirth:
+                  type: string
+            examples:
+              Update First Name:
+                value:
+                  firstName: Rebecca
+              Update Email:
+                value:
+                  email: rebecca@gmail.com
+              Update Last Name & Date of Birth:
+                value:
+                  lastName: Baker
+                  dateOfBirth: '1985-10-02'
+        description: Patch user properties to update.
+      x-stoplight:
+        id: tmf5lencvbfza
+    put:
+      summary: Your PUT endpoint
+      tags: []
+      responses: {}
+      operationId: put-users-userId
+      x-stoplight:
+        id: bb0dflihhz417
+    options:
+      summary: Your OPTIONS endpoint
+      tags: []
+      responses:
+        '100':
+          description: Continue
+          content:
+            application/soap+xml:
+              schema:
+                $ref: 'stoplight://resources/overrides/uKrILN01OZc'
+      operationId: options-users-userId
+      x-stoplight:
+        id: xl6niu6i5s2ey
+  /user:
+    post:
+      summary: Create New User
+      operationId: post-user
+      responses:
+        '200':
+          description: User Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                New User Bob Fellow:
+                  value:
+                    id: 12
+                    firstName: Bob
+                    lastName: Fellow
+                    email: bob.fellow@gmail.com
+                    dateOfBirth: '1996-08-24'
+                    emailVerified: false
+                    createDate: '2020-11-18'
+        '400':
+          description: Missing Required Information
+        '409':
+          description: Email Already Taken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+                email:
+                  type: string
+                dateOfBirth:
+                  type: string
+                  format: date
+              required:
+                - firstName
+                - lastName
+                - email
+                - dateOfBirth
+            examples:
+              Create User Bob Fellow:
+                value:
+                  firstName: Bob
+                  lastName: Fellow
+                  email: bob.fellow@gmail.com
+                  dateOfBirth: '1996-08-24'
+        description: Post the necessary fields for the API to create a new user.
+      description: Create a new user.
+      x-stoplight:
+        id: l0dp64iv5pmq3
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-user
+      x-stoplight:
+        id: 1xnkv6s5fnq7j
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      examples:
+        - id: 142
+          firstName: Alice
+          lastName: Smith
+          email: alice.smith@gmail.com
+          dateOfBirth: '1997-10-31'
+          emailVerified: true
+          signUpDate: '2019-08-24'
+      x-stoplight:
+        id: 2hnpz0zo6mt4y
+      required:
+        - id
+        - firstName
+        - lastName
+        - email
+        - emailVerified
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the given user.
+          x-stoplight:
+            id: 5zyh35eegi3es
+        firstName:
+          type: string
+          x-stoplight:
+            id: 8ghnodkw42i6e
+        lastName:
+          type: string
+          x-stoplight:
+            id: x6l2vgwqnw6df
+        email:
+          $ref: '#/components/schemas/asxdcfdg'
+          x-stoplight:
+            id: ev1ewrxkf1rwn
+        dateOfBirth:
+          type: string
+          format: date
+          example: '1997-10-31'
+          x-stoplight:
+            id: 45ctfsiry5ghz
+        emailVerified:
+          type: boolean
+          description: Set to true if the user's email has been verified.
+          x-stoplight:
+            id: ukifkw3xa71ek
+        createDate:
+          type: string
+          format: date
+          description: The date that the user was created.
+          x-stoplight:
+            id: i1oigf2gljknh
+    asxdcfdg:
+      title: asxdcfdg
+      x-stoplight:
+        id: 1s3hrx82uujfh
+      type: object
+      properties:
+        id:
+          type: integer
+          x-stoplight:
+            id: 0g7ek3b9xmn5i
+          format: int32
+          default: q
+          example: wewsedr
+          multipleOf: 2134
+          exclusiveMinimum: 1
+          exclusiveMaximum: 21345
+          deprecated: true
+        qswdf:
+          type: object
+          x-stoplight:
+            id: a6x34qh0z3mx6
+        qsw:
+          type: array
+          x-stoplight:
+            id: j818s6xcxufr6
+          items:
+            $ref: 'https://x-20780.stoplight-dev.com/api/v1/projects/yessire/fiev/nodes/models/sdftgyui.yaml?mid=15'
+            x-stoplight:
+              id: tvta3jab65nm4
+        edr:
+          type: number
+          x-stoplight:
+            id: rphqbnce85rd1
+          format: float
+          default: qswedrf
+          example: wqdefr
+          multipleOf: 12345
+          deprecated: true
+          exclusiveMaximum: 1234
+          exclusiveMinimum: 1234
+        sw:
+          x-stoplight:
+            id: ssg8502a29lzy
+          oneOf:
+            - x-stoplight:
+                id: 0yx8dthut9rvj
+              properties:
+                wsqderft:
+                  type: string
+                  x-stoplight:
+                    id: gxgrbzxw2l0i7
+                wsedrf:
+                  type: string
+                  x-stoplight:
+                    id: ldwqr70q4culh
+            - x-stoplight:
+                id: ynh2ol2r5ls0g
+              properties:
+                qwsedrft:
+                  type: string
+                  x-stoplight:
+                    id: rj6tw7yftiqkg
+                wse3456drf:
+                  type: string
+                  x-stoplight:
+                    id: g7grseuk0q3c2
+            - x-stoplight:
+                id: kmmpr18tz7wbb
+              properties:
+                swedrfswedf:
+                  type: string
+                  x-stoplight:
+                    id: hsdh5isgdk49o
+          type: object
+        edf:
+          type: boolean
+          x-stoplight:
+            id: drvfd3jdz68op
+          default: true
+        dew:
+          type: object
+          x-stoplight:
+            id: ajyb77926cefx
+          additionalProperties:
+            $ref: 'https://x-20780.stoplight-dev.com/api/v1/projects/yessire/fiev/nodes/reference/wasertyui.json/components/schemas/User?deref=bundle&mid=16'
+            x-stoplight:
+              id: xmzbcnou3ro3y
+        rf:
+          x-stoplight:
+            id: blxv6dux9nvqr
+          enum:
+            - xscwdevfgdewfrtg
+            - dwfvg
+      examples:
+        - id: wewdewrfgbsedr
+          qswdf:
+            wqsdefrtgy: null
+          qsw:
+            - id: string
+              EDFRG: stdfgbhgring
+              FERGB: string
+              FERG: stridsfgbng
+          edr: wqdefr
+          sw:
+            wsqderft: string
+            wsedrf: string
+          edf: true
+          dew:
+            property1:
+              id: 0
+              firstName: string
+              createDate: '2019-08-24'
+            property2:
+              id: 0
+              firstName: string
+              createDate: '2019-08-24'
+          rf: xscwdevfgdewfrtg
+      description: |-
+        hdeufrgethbryiojjdfv
+        dewfretgyr7whefuiovjteb
+        dwefcrwvyetguhievrjfocsd 
+        edwfr4gtyuhieacojdfs

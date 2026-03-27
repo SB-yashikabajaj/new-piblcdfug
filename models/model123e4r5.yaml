@@ -1,0 +1,37 @@
+title: model123e4r5
+x-stoplight:
+  id: 022njmn1h5jup
+type: object
+properties:
+  id:
+    type: string
+    x-stoplight:
+      id: bhl7ba3hitjjv
+  qwdewfevbgr:
+    type: object
+    x-stoplight:
+      id: d06uafuhj2ojp
+    additionalProperties:
+      $ref: 'https://x-20780.stoplight-dev.com/api/v1/projects/yessire/fiev/nodes/models/sdftgyui.yaml?deref=bundle&mid=18'
+      x-stoplight:
+        id: mgeydo6g2z8a7
+  sdfgbh:
+    type: string
+    x-stoplight:
+      id: ydq8o08vxebg3
+  dewfre:
+    $ref: ./model123e4r5.yaml
+    x-stoplight:
+      id: 48tk6rhl95jmj
+  asxdcfvg:
+    type: string
+    x-stoplight:
+      id: 096klgyxuansu
+  fwer:
+    type: string
+    x-stoplight:
+      id: 0xlbdod0gfnax
+  r21w34:
+    type: string
+    x-stoplight:
+      id: 75csm1i7j2tyq
